@@ -1,0 +1,47 @@
+planetDescription tell me about {planet}
+planetDescription describe the {planet}
+planetDescription describe {planet}
+planetRadius how large is {planet}
+planetRadius how large is the {planet}
+planetRadius how big is {planet}
+planetRadius how big is the {planet}
+planetRadius what is the radius of {planet}
+planetRadius what is the size of {planet}
+planetPeriod how long does {planet} take to orbit the sun
+planetPeriod how long is an year on {planet}
+planetPeriod how long does {planet} take to complete one revolution
+planetPeriod what is the orbital period of {planet}
+planetWeight how heavy is {planet}
+planetWeight how heavy is the {planet}
+planetWeight what is the mass of {planet}
+planetWeight what is the weight of {planet}
+planetDistance how far is {planet}
+planetDistance how far is the {planet}
+planetDistance how far is {planet} from sun
+planetDistance how far is the {planet} from sun
+planetDistance what is the distance of {planet}
+planetDistance what is the distance of the {planet}
+planetDistance what is the distance of {planet} from sun
+planetDistance what is the distance of the {planet} from sun
+planetNumberOfMoons how many moons does {planet} have
+planetNumberOfMoons how many moons does the {planet} have
+planetNumberOfMoons how many moons are there for {planet}
+discribeObjectNotPlanet describe {object}
+discribeObjectNotPlanet tell me about {object}
+discribeObjectNotPlanet describe the {object}
+CelestialObjectsDescription what are {item}
+CelestialObjectsDescription tell me about {item}
+CelestialObjectsDescription what is a {item}
+CelestialObjectsDescription describe {item}
+CelestialObjectsAge how old is {everything}
+planetMoonsInformation describe the moons of {moon}
+planetMoonsInformation tell me about the moons of {moon}
+planetRotation what is the rotation period of {planet}
+planetRotation how long does {planet} take to rotate.
+planetRotation how long is a day on {planet}
+planetDisplay show me {celestial}
+planetDisplay take me to {celestial}
+planetDisplay display {celestial}
+Repeat repeat that
+Repeat I didn't get that
+Repeat what was that

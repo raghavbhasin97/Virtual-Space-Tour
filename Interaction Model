@@ -1,0 +1,130 @@
+{
+  "intents": [
+    {
+      "slots": [
+        {
+          "name": "planet",
+          "type": "LIST_OF_PLANETS"
+        }
+      ],
+      "intent": "planetDescription"
+    },
+    {
+      "slots": [
+        {
+          "name": "planet",
+          "type": "LIST_OF_PLANETS"
+        }
+      ],
+      "intent": "planetRadius"
+    },
+    {
+      "slots": [
+        {
+          "name": "planet",
+          "type": "LIST_OF_PLANETS"
+        }
+      ],
+      "intent": "planetPeriod"
+    },
+    {
+      "slots": [
+        {
+          "name": "planet",
+          "type": "LIST_OF_PLANETS"
+        }
+      ],
+      "intent": "planetWeight"
+    },
+    {
+      "slots": [
+        {
+          "name": "planet",
+          "type": "LIST_OF_PLANETS"
+        }
+      ],
+      "intent": "planetDistance"
+    },
+    {
+      "slots": [
+        {
+          "name": "planet",
+          "type": "LIST_OF_PLANETS"
+        }
+      ],
+      "intent": "planetNumberOfMoons"
+    },
+    {
+      "slots": [
+        {
+          "name": "object",
+          "type": "LIST_OF_OBJECTS"
+        }
+      ],
+      "intent": "discribeObjectNotPlanet"
+    },
+    {
+      "slots": [
+        {
+          "name": "item",
+          "type": "Discriptions"
+        }
+      ],
+      "intent": "CelestialObjectsDescription"
+    },
+    {
+      "slots": [
+        {
+          "name": "everything",
+          "type": "Everything"
+        }
+      ],
+      "intent": "CelestialObjectsAge"
+    },
+    {
+      "slots": [
+        {
+          "name": "moon",
+          "type": "LIST_OF_PLANETS"
+        }
+      ],
+      "intent": "planetMoonsInformation"
+    },
+    {
+      "slots": [
+        {
+          "name": "planet",
+          "type": "LIST_OF_PLANETS"
+        }
+      ],
+      "intent": "planetRotation"
+    },
+    {
+      "slots": [
+        {
+          "name": "celestial",
+          "type": "Celestials"
+        }
+      ],
+      "intent": "planetDisplay"
+    },
+    {
+      "intent": "AMAZON.StopIntent"
+    },
+    {
+      "intent": "AMAZON.YesIntent"
+    },
+    {
+      "intent": "AMAZON.NoIntent"
+    },
+    {
+      "intent": "AMAZON.HelpIntent"
+    },
+    {
+      "intent": "AMAZON.RepeatIntent"
+    },
+    {
+      "intent": "Repeat"
+    }
+  ]
+}
