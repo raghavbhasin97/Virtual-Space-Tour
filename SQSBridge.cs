@@ -10,8 +10,8 @@ using UnityEngine.UI;
 public class SQSBridge : MonoBehaviour {
 
 	Camera[] cams;
-	private string queueUrl = "https://sqs.us-east-1.amazonaws.com/344524627200/Alexa-UnityCloudBridge";
-	private string IdentityPoolId = "us-east-1:69a65979-1327-4e79-a6a2-0143b53a9dee";
+	private string queueUrl = "";// SQS Queue URL
+	private string IdentityPoolId = "";// Identity Pool ID (Removed for security)
 
 	public string CognitoIdentityRegion = RegionEndpoint.USEast1.SystemName;
 
