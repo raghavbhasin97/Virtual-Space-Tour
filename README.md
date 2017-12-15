@@ -1,5 +1,6 @@
 # Alexa Virtual Space Tour
-#### CMSC389L Final Project
+#### CMSC389L Final Project by Raghav Gupta, Raghav Bhasin 
+#### University of Maryland, College Park
 
 ## Overview
 
@@ -16,4 +17,14 @@ The goal is to implement VR in viewing the display so there is a 3D factor to it
 [Link](https://www.youtube.com/watch?v=ZBR7Mc02U_k&feature=youtu.be)
 
 ## Architecture Diagram
+
 <img width="600" alt="screen shot 2017-12-15 at 2 43 51 pm" src="https://user-images.githubusercontent.com/19369645/34057816-88e06fec-e1a6-11e7-9ee3-ecfe098c2ace.png">
+
+## How we built it
+
+- Alexa skill kit
+- AWS Lambda for Alexa responses, Unity connection and data processing
+- SQS for Queue of planets to be visited
+- DynamoDB for Storing planet state and planet data
+- AWS Cognito
+- Unity model for solar sysytem
