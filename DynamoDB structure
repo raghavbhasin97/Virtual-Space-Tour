@@ -1,0 +1,11 @@
+celestials (name (key), index)
+
+items (name (key), index, info)
+
+moons (name (key), info)
+
+objects (name (key),info, index, size, weight)
+
+planets (name (key(, distance, index, info, moons, period, rotation, size, weight)
+
+states (sessionID (key), name)
