@@ -16,7 +16,4 @@ The goal is to implement VR in viewing the display so there is a 3D factor to it
 [Link](https://www.youtube.com/watch?v=ZBR7Mc02U_k&feature=youtu.be)
 
 ## Architecture Diagram
-
-![alt text](https://raw.githubusercontent.com/raghavbhasin97/Virtual-Space-Tour/blob/master/25435505_1820487344662165_1404930085_o/img.png)
-
-
+<img width="600" alt="screen shot 2017-12-15 at 2 43 51 pm" src="https://user-images.githubusercontent.com/19369645/34057816-88e06fec-e1a6-11e7-9ee3-ecfe098c2ace.png">
