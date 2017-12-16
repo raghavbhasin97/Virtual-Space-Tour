@@ -1,11 +1,11 @@
-celestials (name (key), index)
+celestials {name (PRIMARY KEY), index)}
 
-items (name (key), index, info)
+items {name (PRIMARY KEY)), index, info}
 
-moons (name (key), info)
+moons {name (PRIMARY KEY)), info}
 
-objects (name (key),info, index, size, weight)
+objects {name (PRIMARY KEY)),info, index, size, weight}
 
-planets (name (key(, distance, index, info, moons, period, rotation, size, weight)
+planets {name (PRIMARY KEY)), distance, index, info, moons, period, rotation, size, weight}
 
-states (sessionID (key), name)
+states {sessionID (PRIMARY KEY)), name}
