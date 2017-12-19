@@ -1,0 +1,4 @@
+sceneSetups:
+- path: Assets/SolarSystem/Scenes/PreviewScene.unity
+  isLoaded: 1
+  isActive: 1
