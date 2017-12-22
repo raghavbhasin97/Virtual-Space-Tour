@@ -27,11 +27,23 @@ def lambda_handler(event, context):
 
 def on_session_started(session_started_request, session):
     print("Session started with id=" + session['sessionId'])
+   
+
     return
 
 
 def on_launch(launch_request, session):
     print("Application statrted with requestId=" + launch_request['requestId'] + ", sessionId=" + session['sessionId'])
+    try:
+        state = restore(session)
+    except Exception:
+        state = None
+    if state is not None:
+        restore_unity(state,session)
+        return build_response({}, build_speechlet_response("Restore", 
+                "Your previous session has been restored!", 
+                "You can ask me for information about any of the objects in the solar system, ", 
+                False))
     return get_welcome_response()
 
 
@@ -43,14 +55,7 @@ def on_intent(intent_request, session):
 
 def on_session_ended(session_ended_request, session):
     print("Session ended for id=" + session['sessionId'])
-    #cleanup 
-    table = dynamodb.Table('states')
-    table.delete_item(
-        Key={
-         'session': session['sessionId'],
-        }
-
-    )
+ 
 
 # --------------- Functions that control the skill's behavior ------------------
 
@@ -58,7 +63,8 @@ def process_intent(intent, session):
     if intent is None:
         return get_exception_response("")
 
-   
+
+
     try:
         intent_name = intent['name']
         if intent_name == "Repeat":
@@ -95,6 +101,12 @@ def process_intent(intent, session):
             return describe_rotation(intent,session)
         elif intent_name == "planetDisplay":
             return display_planet(intent,session)
+        elif intent_name == "Exit":
+            exitIntent(session)
+            return build_response({}, build_speechlet_response("Exit", 
+                "Please say \"Exit\" to end the session.", 
+                "Please say \"Exit\" to end the session.", 
+                False))
         else:
             raise ValueError("Invalid intent")
     except Exception as e:
@@ -125,6 +137,16 @@ def get_exception_response(e):
     should_end_session = False
     return build_response({}, build_speechlet_response(
         card_title, speech_output, reprompt_text, should_end_session))
+
+def exitIntent(session):
+    #cleanup 
+    table = dynamodb.Table('states')
+    table.delete_item(
+        Key={
+         'session': session['user']['userId']
+        }
+
+    )
 
 
 # --------------- SQS functions to store/retrive state and send messages ----------------------
@@ -162,13 +184,13 @@ def store_state(object_name, session, intent):
     table = dynamodb.Table('states')
     table.delete_item(
         Key={
-         'session': session['sessionId'],
+         'session': session['user']['userId'],
         }
 
     )
     table.put_item(
         Item={
-            'session': session['sessionId'],
+            'session': session['user']['userId'],
             'intent':json.dumps(intent), 
             'object': object_name
          }
@@ -180,13 +202,27 @@ def retrive_state(session):
     try:
         response = table.get_item(
             Key={
-            'session': session['sessionId']
+            'session': session['user']['userId']
             }
         )
     except Exception:
         return None
 
     return json.loads(response['Item']['intent'])
+
+def restore(session):
+    table = dynamodb.Table('states')
+    response = None
+    try:
+        response = table.get_item(
+            Key={
+            'session': session['user']['userId']
+            }
+        )
+    except Exception:
+        return None
+
+    return response['Item']['object']
 
 def generate_cancel_response(intent, session):
     session_attributes = {}
@@ -207,7 +243,7 @@ def get_response(intent, session, type):
         table = dynamodb.Table('states')
         response = table.get_item(
             Key={
-            'session': session['sessionId']
+            'session': session['user']['userId']
             }
         )
         planet = response['Item']['object']
@@ -389,7 +425,6 @@ def build_response(session_attributes, speechlet_response):
     }
 
 
-
 # --------------- Display Intents (Unity Bridge)----------------------
 
 def display_planet( intent, session ):
@@ -404,3 +439,17 @@ def display_planet( intent, session ):
     speech_output = "Displaying " + planet_name
     return build_response({}, build_speechlet_response(
         card_title, speech_output, reprompt_text, should_end_session))
+
+
+def restore_unity(object,session):
+    table = dynamodb.Table('celestials')
+    response = table.get_item(
+        Key={
+            'name': object
+        }
+    )
+    response = response['Item']
+    index = str(response['index'])
+    send_message(index)
+    return
+
